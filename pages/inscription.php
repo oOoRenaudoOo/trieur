@@ -2,6 +2,7 @@
     <?php 
         $info = "Entrez un email et un mot de passe";
         $lien = "#connexion";
+        // ancre id="connexion"
 
         switch ($errorSig) {
 
@@ -25,7 +26,7 @@
         switch ($message) {
 
             case 1:
-                $info ="Vous etes deja inscrit";
+                $info ="Vous etes deja inscrit(e)".date($_SESSION["dateIns"]);
                 $lien = "./index.php";
                 break;
 

@@ -15,21 +15,20 @@ if (!empty($_POST["email"]) AND !empty($_POST["password"])) {
 
       if ($rqUser->num_rows > 0){
       
-            // ouverture session
             $user = $rqUser->fetch_object();
-            
-            // echo $user->id;
+      
+            // ouverture session utilisateur
             $_SESSION["idUser"] = $user->id;
+            $_SESSION["email"] = $user->email;
             $_SESSION["inscrit"] = "TRUE";
             $_SESSION["logged"] = "TRUE";
             $_SESSION["dateIns"] = $user->dateIns;
             
-            // var_dump($_SESSION);
             header("location:/trieur/index.php");
     
       } else {
-            // identifiants incorrects
-            // soit l'email ou le mot de passe ou les deux
+
+            // l'utilisateur n'existe pas
             $_SESSION["email"] = $_POST["email"];
             $_SESSION["password"] = $_POST["password"];
             header("location:/trieur/index.php?errLog=4");
@@ -47,15 +46,15 @@ if (!empty($_POST["email"]) AND !empty($_POST["password"])) {
 
             if (empty($_POST["password"])) {
 
-                  $_SESSION["email"] = $_POST["email"];
                   // password non saisis
+                  $_SESSION["email"] = $_POST["email"];
                   header("location:/trieur/index.php?errLog=2");
 
             }
             else {
 
+                   // email non saisis
                   $_SESSION["password"] = $_POST["password"];
-                  // email non saisis
                   header("location:/trieur/index.php?errLog=1");
 
             }

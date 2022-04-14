@@ -2,7 +2,8 @@
     <?php
 
         $info = "Entrez vos identifiants";
-        $lien = "#inscription";
+        $lien = "#inscription";  
+        // ancre id="inscription"
 
         switch($errorLog) {
             
@@ -23,6 +24,11 @@
 
             case 4:
                 $info = "L'utilisateur n'existe pas / inscrivez vous";
+                $lien = "./index.php#inscription";
+                break;
+
+            case 5:
+                $info = "Vous n'etes pas connecte(e)";
                 $lien = "./index.php#inscription";
                 break;
 

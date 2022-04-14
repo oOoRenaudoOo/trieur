@@ -42,11 +42,12 @@ h1 {
 
 
 h2 {
-    padding-left: 10px;
-    padding-right: 10px;
+    /* padding-left: 10px;
+    padding-right: 10px; */
     background-color: var(--color-main--);
     border-radius: 3px;
-    font-weight: 500;
+    font-weight: 100;
+    letter-spacing: -0.1rem;
 
 }
 
@@ -64,12 +65,13 @@ section {
 .title {
     width: 250px;
     margin: 0 auto;
+    margin-bottom: 20px;
     text-align: center;
     
 } 
 
 
-.formConnexion form, .formInscription form {
+.formConnexion form, .formInscription form, .formNews form {
     width: 350px;
     min-height: 300px;
     background-color: var(--color-form--);
@@ -81,9 +83,11 @@ section {
 
 }
 
-.connexion .formConnexion form label, .inscription .formInscription form label  {
+.connexion .formConnexion form label,
+.inscription .formInscription form label,
+.dash .formNews label  {
     margin-top: 20px;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     margin-left: 5px;
     margin-right: 5px;
     color: var(--color-formtxt--);
@@ -91,7 +95,8 @@ section {
 
 
 input {
-    margin: 5px;
+    margin-top: 0; margin-bottom: 0;
+    margin-left: 5px; margin-right: 5px;
     border-radius: 5px;
     height: 25px;
     padding-left: 10px;
@@ -102,6 +107,7 @@ input {
 
 
 input.btnSubmit {
+    margin-top: 40px;
     background-color: var(--color-main--);
     font-size: 16px;
     font-weight: 600;
@@ -154,7 +160,7 @@ input.btnSubmit {
     color: var(--color-infotxt--);
     font-size: 0.8rem;
     animation-name: scroll-h;
-    animation-duration: 1500ms;
+    animation-duration: 600ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
 
