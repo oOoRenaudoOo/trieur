@@ -1,0 +1,175 @@
+
+:root {
+
+    --color-main--: rgb(194, 170, 170);
+    --color-maintxt--: rgb(88, 38, 38);
+    --color-background--:  rgb(143, 136, 136);
+    --color-form--: rgb(212, 211, 211);
+    --color-formtxt--: black;
+    --color-info--: black;
+    --color-infotxt--: white;
+
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    color: var(--color-maintxt--);
+    box-sizing: border-box;
+    font-family: cursive, 'sans-serif';
+    text-decoration: none;
+}
+
+
+body {
+    overflow-y: hidden;
+}
+
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background-color: var(--color-main--);
+    text-align: center;
+    box-shadow: 0px 3px 7px 2px rgba(73, 57, 57, 0.571);
+}
+
+
+h1 {
+    line-height: 80px;
+}
+
+
+h2 {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--color-main--);
+    border-radius: 3px;
+    font-weight: 500;
+
+}
+
+section {
+
+    background-color: var(--color-background--);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.title {
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    
+} 
+
+
+.formConnexion form, .formInscription form {
+    width: 350px;
+    min-height: 300px;
+    background-color: var(--color-form--);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    padding: 10px;
+    box-shadow: 10px 1px 15px 5px rgb(92, 91, 91);
+
+}
+
+.connexion .formConnexion form label, .inscription .formInscription form label  {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: var(--color-formtxt--);
+}
+
+
+input {
+    margin: 5px;
+    border-radius: 5px;
+    height: 25px;
+    padding-left: 10px;
+    border-style: none;
+    color: var(--color-formtxt--);
+
+}
+
+
+input.btnSubmit {
+    background-color: var(--color-main--);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-maintxt--);
+
+}
+
+
+.suggestion {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    
+}
+
+.suggestion span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-main--);
+ 
+}
+
+.information {
+    width: 350px;
+    text-align: center;
+    margin-bottom: 80px;
+    margin-top: 10px;
+    background-color: var(--color-info--);
+    border-radius:8px;
+    padding: 4px;
+
+}
+
+
+@keyframes scroll-h {
+    0% {
+        transform: translateX(-50%);
+        opacity: 0;
+
+    } 
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+
+    }
+}
+
+.info-txt {
+    color: var(--color-infotxt--);
+    font-size: 0.8rem;
+    animation-name: scroll-h;
+    animation-duration: 1500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+
+}
+
+
+
+.end-section {
+    background-color: var(--color-info--);
+    width: 100%;
+    text-align: center;
+    color: var(--color-infotxt--);
+
+}
+
+.end-section h4{
+    color: white;
+} 
