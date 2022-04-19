@@ -1,6 +1,5 @@
 <?php 
 
-
 include "config.php";
 
 $_SESSION["email"] = "";
@@ -22,13 +21,13 @@ if (!empty($_POST["email"]) AND !empty($_POST["password"])) {
             $_SESSION["email"] = $user->email;
             $_SESSION["inscrit"] = "TRUE";
             $_SESSION["logged"] = "TRUE";
-            $_SESSION["dateIns"] = $user->dateIns;
+            $_SESSION["dateIns"] = convertirDate($user->dateIns);
             
             header("location:/trieur/index.php");
     
       } else {
 
-            // l'utilisateur n'existe pas
+            // Identifiants incorrects
             $_SESSION["email"] = $_POST["email"];
             $_SESSION["password"] = $_POST["password"];
             header("location:/trieur/index.php?errLog=4");

@@ -2,34 +2,32 @@
     <?php
 
         $info = "Entrez vos identifiants";
-        $lien = "#inscription";  
-        // ancre id="inscription"
+        $lien = "./index.php?page=inscription";  
 
         switch($errorLog) {
             
             case 1:
                 $info = "Entrez l'adresse email";
-                $lien = "./index.php#inscription";
                 break;
 
             case 2:
                 $info = "Entrez le mot de passe";
-                $lien = "./index.php#inscription";
                 break;
 
             case 3:
                 $info = "Entrez vos identifiants";
-                $lien = "./index.php#inscription";
                 break;
 
             case 4:
-                $info = "L'utilisateur n'existe pas / inscrivez vous";
-                $lien = "./index.php#inscription";
+                $info = "Identifiants incorrects / inscrivez vous";
                 break;
 
             case 5:
                 $info = "Vous n'etes pas connecte(e)";
-                $lien = "./index.php#inscription";
+                break;
+
+            case 6:
+                $info = "Vous êtes deconnecte(e)";
                 break;
 
             }
@@ -67,6 +65,12 @@
 
             }
             
+            if ($inscrit == "ok") {
+
+                $formConnexion->emailValue = $_SESSION["email"];
+                $formConnexion->passwordValue = $_SESSION["password"];
+
+            }
 
             echo $formConnexion->afficheForm();
             
@@ -74,7 +78,7 @@
         <p class="suggestion">Creer un compte, <a href="<?php echo $lien; ?>"><span>Inscrivez-vous<span></a></p>
 
         <div class="information">
-            <p class="info-txt"><?php echo $info; ?></p>
+            <p class="info-txt"> <?php echo $info; ?></p>
         </div>
 
         <footer class="end-section">

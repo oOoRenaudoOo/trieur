@@ -10,6 +10,8 @@ class Formhtml {
     public $emailValue = '';
     public $passwordValue = '';
 
+    public $dateIns = "";
+
 
 
     function afficheForm() {
@@ -24,6 +26,14 @@ class Formhtml {
             $this->passwordValue = "value=".'"'.$this->passwordValue.'"';
         }
 
+        if ($this->dateIns <> "") {
+
+            // $this->dateIns = '<input class="dateins" type="text" value="disabled" disabled>'.$this->dateIns;
+
+            $this->dateIns = '<label for="">inscrit le:</label>
+                            <input class="dateins" type=""text" value="'.$this->dateIns.'" disabled></input>';
+        }
+
 
         return '<div class="'.$this->className.'">
         <form action="'.$this->actionText.'" method="post">
@@ -33,7 +43,7 @@ class Formhtml {
         <label for="">Email:</label>
         <input type="text" name="email" '.$this->emailValue.' placeholder="Ex: mail@domain.com">
         <label for="">mot de passe:</label>
-        <input type="password" name="password" '.$this->passwordValue.' placeholder="Ex: *****"> 
+        <input type="password" name="password" '.$this->passwordValue.' placeholder="Ex: *****">'.$this->dateIns.'
         <input type="submit" class="btnSubmit" value="'.$this->submitText.'"></form>
     </div>';
     }

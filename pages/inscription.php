@@ -1,39 +1,36 @@
     <!-- Debut incription -->
     <?php 
         $info = "Entrez un email et un mot de passe";
-        $lien = "#connexion";
-        // ancre id="connexion"
+        $lien = "./index.php?page=connexion";
+
 
         switch ($errorSig) {
 
             case 1:
                 $info = "Entrez l'adresse email"; 
-                $lien = "./index.php";
                 break;
 
             case 2:
                 $info = "Entrez le mot de passe";
-                $lien = "./index.php";
                 break;
 
             case 3:
                 $info ="Entrez un email et un mot de passe";
-                $lien = "./index.php";
                 break;
       
         }
 
-        switch ($message) {
+        switch ($messageSig) {
 
             case 1:
-                $info ="Vous etes deja inscrit(e)".date($_SESSION["dateIns"]);
-                $lien = "./index.php";
+                $info ="Vous etes deja inscrit(e)";
+                $lien = "./index.php?inscrit=ok";
+                $formInscription->dateIns = $_SESSION["dateIns"];
                 break;
-
 
             case 2:
                 $info ="Inscription reussie";
-                $lien = "./index.php";
+                $lien = "./index.php?inscrit=ok";
                 break;
 
         }
@@ -70,8 +67,15 @@
                 $formInscription->passwordValue = "";
 
             }
-            
+
+            if (!empty($messageSig)) {
+
+                $formInscription->passwordValue = $_SESSION["password"];
+                $formInscription->emailValue = $_SESSION["email"];
+
+            }
        
+            
             echo $formInscription->afficheForm();
 
             

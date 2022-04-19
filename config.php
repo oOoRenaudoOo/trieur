@@ -24,7 +24,26 @@ if(isset($_SESSION["idUser"]) AND !empty($_SESSION["idUser"])) {
 }
 
 
+
+
+
+// converti une Date
+// anglais AAAA-MM-JJ HH:MM:SS -> francais JJ/MM/AA HH:MM:SS
+
+function convertirDate($dateDelabase) {
+
+    $date = substr($dateDelabase,0,10);
+    $heure = substr($dateDelabase,11,8); 
+    $an = substr($date,0,4);
+    $mois = substr($date,5,2);
+    $jour= substr($date,8,2);
+    $dateFra = $jour. "/". $mois. "/". $an. " ". $heure;
+
+    return($dateFra);
+
+}
+
+
+
+
 ?>
-
-
-

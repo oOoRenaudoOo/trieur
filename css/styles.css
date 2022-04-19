@@ -32,7 +32,7 @@ header {
     height: 80px;
     background-color: var(--color-main--);
     text-align: center;
-    box-shadow: 0px 3px 7px 2px rgba(73, 57, 57, 0.571);
+    box-shadow: 0px 5px 7px 2px rgba(73, 57, 57, 0.571);
 }
 
 
@@ -52,13 +52,13 @@ h2 {
 }
 
 section {
-
     background-color: var(--color-background--);
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    
 }
 
 
@@ -88,15 +88,15 @@ section {
 .dash .formNews label  {
     margin-top: 20px;
     /* margin-bottom: 5px; */
-    margin-left: 5px;
-    margin-right: 5px;
+    /* margin-left: 5px;
+    margin-right: 5px; */
     color: var(--color-formtxt--);
 }
 
 
 input {
     margin-top: 0; margin-bottom: 0;
-    margin-left: 5px; margin-right: 5px;
+    /* margin-left: 5px; margin-right: 5px; */
     border-radius: 5px;
     height: 25px;
     padding-left: 10px;
@@ -105,6 +105,10 @@ input {
 
 }
 
+.dateins {
+    border: 2px solid var(--color-main--);
+
+}
 
 input.btnSubmit {
     margin-top: 40px;
@@ -134,13 +138,54 @@ input.btnSubmit {
 .information {
     width: 350px;
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     margin-top: 10px;
     background-color: var(--color-info--);
     border-radius:8px;
     padding: 4px;
 
 }
+
+.bienvenue {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    width: 350px;
+    align-items: center;
+
+
+}
+
+.bienvenue .user {
+    font-size: 12px;
+
+}
+
+
+.bienvenue span {
+    font-size: 13px;
+    font-weight: 600;
+    background-color: var(--color-main--);
+    border-radius: 5%;
+
+}
+
+.bienvenue .date {
+    font-size: 12px;
+
+
+}
+
+textarea {
+    resize: none;
+    min-width: 330px;
+
+}
+
+
+
+
+
 
 
 @keyframes scroll-h {
@@ -160,7 +205,7 @@ input.btnSubmit {
     color: var(--color-infotxt--);
     font-size: 0.8rem;
     animation-name: scroll-h;
-    animation-duration: 600ms;
+    animation-duration: 500ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
 

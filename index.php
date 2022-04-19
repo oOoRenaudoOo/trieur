@@ -29,6 +29,9 @@
     <?php 
     
         if($_SESSION["logged"] == "TRUE") {
+
+            $messageNews = isset($_GET["msgNews"]) ? $_GET["msgNews"] : "";
+            $errorNews = isset($_GET["errNews"]) ? $_GET["errNews"] : "";
         
             include("pages/secure/dash.php");
         
@@ -36,33 +39,49 @@
 
             $errorLog = isset($_GET["errLog"]) ? $_GET["errLog"] : "";
             $errorSig = isset($_GET["errSig"]) ? $_GET["errSig"] : "";
-            $message = isset($_GET["msg"]) ? $_GET["msg"] : "";
+            $messageSig = isset($_GET["msgSig"]) ? $_GET["msgSig"] : "";
+            $page = isset($_GET["page"]) ? $_GET["page"] : "";
+            $inscrit = isset($_GET["inscrit"]) ? $_GET["inscrit"] : "";
 
-            if ($errorLog <> "") {
+            $shortUrl = ($errorLog == "" AND $errorSig == "" AND $messageSig == "" AND $page == "") ? "TRUE" : "";
 
+            if ($shortUrl == "TRUE") {
+                
+                // page par defaut
                 include("pages/connexion.php");
+            
+            } else { // Affiche page selon param dans l'url
+                
+                if ($errorLog <> "") {
+
+                    include("pages/connexion.php");
+    
+                }
+    
+                if ($errorSig <> "") {
+    
+                    include("pages/inscription.php");
+    
+                }
+    
+                if ($messageSig <> "") {
+    
+                    include("pages/inscription.php");
+    
+                }
+    
+                if ($page == "connexion") {
+    
+                    include("pages/connexion.php");
+                }
+               
+                    
+                if ($page == "inscription") {
+                    include("pages/inscription.php");
+                } 
 
             }
-
-            if ($errorSig <> "") {
-
-                include("pages/inscription.php");
-
-            }
-
-            if ($message <> "") {
-
-                include("pages/inscription.php");
-
-            }
-
-            if ($errorLog == "" AND $errorSig == "" AND $message == "") {
-
-                include("pages/connexion.php"); 
-                include("pages/inscription.php");
-
-            }
-
+            
 
         }
         

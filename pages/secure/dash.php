@@ -9,13 +9,69 @@ if ($_SESSION["logged"] == "TRUE") {
     
     $info = "Entrer un titre et une description";
 
+    if ($errorNews == 1) {
+
+        $info = "Saisir le titre";
+        $formNews->descValue = $_SESSION["news"]["actu"];
+    
+        $_SESSION["news"]["actu"] = "";
+
+    }
+
+    if ($errorNews == 2) {
+
+        $info = "Saisir la description";
+        $formNews->titleValue = $_SESSION["news"]["title"];
+    
+        $_SESSION["news"]["title"] = "";
+    }
+
+    if ($errorNews == 3) {
+
+        $info = "Saisir le titre et la description";
+
+    }
+
+    if ($messageNews <> "") {
+
+        $formNews->titleValue = $_SESSION["news"]["title"];
+        $formNews->descValue = $_SESSION["news"]["actu"];
+    
+        $_SESSION["news"]["title"] = "";
+        $_SESSION["news"]["actu"] = "";
+
+        if ($messageNews == 1) {
+
+            $info = "Ajout de l'actualite realise";
+
+        } else {
+
+            $info = "Cette actualite existe : ".($_SESSION["news"]["dateIns"]);
+
+        }
+
+    }
+
     ?>
         <!-- debut Dash -->
-   
+
         <section class="dash">
-            <p>Bienvenue <?php echo $_SESSION["email"]; ?></p>
+
+            <div class="bienvenue">
+                <div class="user">
+                    <p>Bienvenue :</p>
+                    <span><?php echo $_SESSION["email"]; ?></span>
+                </div>
+                <div class="date">
+                    <p>depuis le :</p>
+                    <span><?php echo $_SESSION["dateIns"]; ?></span>
+                </div>
+            </div>
+            
             <?php
+
                 echo $formNews->afficheForm();
+
             ?>
 
             <p class="suggestion">Deconnexion, <a href="././logout.php"><span>Logout<span></a></p>
@@ -29,14 +85,14 @@ if ($_SESSION["logged"] == "TRUE") {
             </footer>
 
         </section>
-    
+
+
         <!-- Fin Dash -->
     
     <?php
 
 } else {
-
-    header("location:/trieur/index.php.errLog=5");
+    header("location:../../index.php?errLog=5");
 
 }
 
